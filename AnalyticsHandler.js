@@ -26,7 +26,15 @@ class AnalyticsHandler {
             }
 
             $(eventObject.trackedBy[i]).on('click', function () {
+                // Choose event generation according to analytics script being used:
+                // analytics.js
                 ga('send', 'event', eventObject.category, eventObject.action, eventObject.label);
+
+                // gtag.js
+                // gtag('event', eventObject.action, {
+                //     'event_category': eventObject.category,
+                //     'event_label': eventObject.label
+                // });
             });
         }
     }
